@@ -1,12 +1,24 @@
-<h1>{{title}}</h1>
-
-<ul>
-    <li>salamèche</li>
-    <li>carapuce</li>
-    <li>Bulbizar</li>
-</ul>
-
-<button (click)="onClick()">cliquer ici !</button>
-
-<input (keyup)="onKey($event)" type="text">
-<p>{{value}}</p>
+<h1 class="center">Pokédex</h1>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons" class="col s6 m4">
+      <div class="card horizontal" (click)="selectPokemon(pokemon)">
+        <div class="card-image">
+          <img
+            [src]="pokemon.picture"
+            [alt]="pokemon.name"
+            [title]="pokemon.name"
+          />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>{{ pokemon.name }}</p>
+            <p>
+              <small>{{ pokemon.created }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
