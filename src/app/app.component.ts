@@ -11,6 +11,7 @@ import { POKEMONS } from "./mock-pokemons";
 export class AppComponent implements OnInit {
 
   private pokemons: Pokemon[] = null;
+  private title: string="Liste de Pokémons with Angular 8";
   ngOnInit() {
     this.pokemons = POKEMONS;
   },

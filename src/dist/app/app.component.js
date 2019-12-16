@@ -11,6 +11,7 @@ const mock_pokemons_1 = require("./mock-pokemons");
 let AppComponent = class AppComponent {
     constructor() {
         this.pokemons = null;
+        this.title = "Liste de Pokémons with Angular 8";
     }
     ngOnInit() {
         this.pokemons = mock_pokemons_1.POKEMONS;
