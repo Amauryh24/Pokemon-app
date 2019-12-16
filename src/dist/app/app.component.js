@@ -12,9 +12,16 @@ let AppComponent = class AppComponent {
     constructor() {
         this.pokemons = null;
         this.title = "Liste de Pokémons with Angular 8";
+        this.value = "";
     }
     ngOnInit() {
         this.pokemons = mock_pokemons_1.POKEMONS;
+    }
+    onClick() {
+        console.log("clic");
+    }
+    onKey(event) {
+        this.value = "Bonjour " + event.target.value;
     }
     selectPokemon(pokemon) {
         alert("vous avez cliqué sur " + pokemon.name);
