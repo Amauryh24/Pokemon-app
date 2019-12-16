@@ -7,22 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const pokemon_1 = require("./pokemon");
 const mock_pokemons_1 = require("./mock-pokemons");
 let AppComponent = class AppComponent {
+    constructor() {
+        this.pokemons = null;
+    }
     ngOnInit() {
         this.pokemons = mock_pokemons_1.POKEMONS;
     }
     selectPokemon(pokemon) {
-        alert("vous avez cliqué sur " + pokemon_1.Pokemon.name);
+        alert("vous avez cliqué sur " + pokemon.name);
     }
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: "pokemon-app",
-        template: `
-    <h1>Liste de pokemon</h1>
-  `
+        templateUrl: `./app/app.component.html`
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
