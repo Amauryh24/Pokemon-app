@@ -11,6 +11,9 @@ let AppComponent = class AppComponent {
     constructor() {
         this.name = "Angular";
     }
+    ngOnInit() {
+        this.pokemons = POKEMONS;
+    }
 };
 AppComponent = __decorate([
     core_1.Component({
