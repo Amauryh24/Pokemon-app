@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from "./page-not-found.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -16,7 +17,8 @@ import { pokemonTypeColorPipe } from "./pokemon-type-color.pipe";
     BorderCardDirective,
     pokemonTypeColorPipe,
     ListPokemonComponent,
-    DetailPokemonComponent
+    DetailPokemonComponent,
+    PageNotFoundComponent
   ],
   bootstrap: [AppComponent]
 })
