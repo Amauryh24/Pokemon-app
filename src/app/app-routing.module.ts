@@ -8,8 +8,6 @@ import { PageNotFoundComponent } from "./page-not-found.component";
 
 // routes
 const appRoutes: Routes = [
-  { path: "pokemons", component: ListPokemonComponent },
-  { path: "pokemon/:id", component: DetailPokemonComponent },
   { path: "", redirectTo: "pokemons", pathMatch: "full" },
   { path: "**", component: PageNotFoundComponent }
 ];

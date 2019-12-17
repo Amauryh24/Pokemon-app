@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const pokemons_routing_module_1 = require("./pokemons-routing.module");
 const pokemon_type_color_pipe_1 = require("./pokemon-type-color.pipe");
 const border_card_directive_1 = require("./../border-card.directive");
 const detail_pokemon_component_1 = require("./detail-pokemon.component");
@@ -16,7 +17,7 @@ let PokemonsModule = class PokemonsModule {
 };
 PokemonsModule = __decorate([
     core_1.NgModule({
-        imports: [common_1.CommonModule],
+        imports: [common_1.CommonModule, pokemons_routing_module_1.PokemonRoutingModule],
         declarations: [
             pokemon_type_color_pipe_1.pokemonTypeColorPipe,
             border_card_directive_1.BorderCardDirective,
