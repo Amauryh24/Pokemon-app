@@ -16,16 +16,39 @@ let BorderCardDirective = class BorderCardDirective {
         this.setBorder("#f5f5f5");
         this.setHeight(180);
     }
+    onMouseEnter() {
+        this.setBorder(this.borderColor || "#009688");
+    }
+    onMouseLeave() {
+        this.setBorder("#f5f5f5");
+    }
     setBorder(color) {
         let border = "solid 4px" + color;
         this.el.nativeElement.style.border = border;
     }
     setHeight(height) {
-        this.el.nativeElement.style.height = "px";
+        this.el.nativeElement.style.height = height + "px";
     }
 };
+__decorate([
+    core_1.Input("pkmnBorderCard"),
+    __metadata("design:type", String)
+], BorderCardDirective.prototype, "borderColor", void 0);
+__decorate([
+    core_1.HostListener("mouseenter"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BorderCardDirective.prototype, "onMouseEnter", null);
+__decorate([
+    core_1.HostListener("mouseleave"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BorderCardDirective.prototype, "onMouseLeave", null);
 BorderCardDirective = __decorate([
     core_1.Directive({ selector: "[pkmnBorderCard]" }),
     __metadata("design:paramtypes", [core_1.ElementRef])
 ], BorderCardDirective);
+exports.BorderCardDirective = BorderCardDirective;
 //# sourceMappingURL=border-card.directive.js.map
