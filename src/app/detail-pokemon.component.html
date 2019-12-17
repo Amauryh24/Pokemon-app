@@ -49,3 +49,13 @@
     </div>
   </div>
 </div>
+<div *ngIf='!pokemon' class="center">
+    <h4 >Aucun pokémon à afficher !
+  
+      </h4>
+      <div class="card-action">
+          <a class="waves-effect waves-light btn center" (click)="goBack()">Accueil</a>
+        </div>
+</div>
+
+
