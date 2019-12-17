@@ -8,7 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const router_1 = require("@angular/router");
 const core_1 = require("@angular/core");
-const pokemonsRoutes, [{ path: , 'pokemons': , component: ListPokemonComponent }, { path: , 'pokemon/:id': , component: DetailPokemonComponent }];
+const list_pokemon_component_1 = require("./list-pokemon.component");
+const detail_pokemon_component_1 = require("./detail-pokemon.component");
+const pokemonsRoutes = [
+    { path: "pokemons", component: list_pokemon_component_1.ListPokemonComponent },
+    { path: "pokemon/:id", component: detail_pokemon_component_1.DetailPokemonComponent }
+];
 let PokemonRoutingModule = class PokemonRoutingModule {
 };
 PokemonRoutingModule = __decorate([

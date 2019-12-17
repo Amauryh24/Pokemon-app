@@ -21,7 +21,7 @@ let ListPokemonComponent = class ListPokemonComponent {
         this.pokemons = mock_pokemons_1.POKEMONS;
     }
     selectPokemon(pokemon) {
-        alert("vous avez cliqué sur " + pokemon.name);
+        // alert("vous avez cliqué sur " + pokemon.name);
         let link = ["/pokemon", pokemon.id];
         this.router.navigate(link);
     }
