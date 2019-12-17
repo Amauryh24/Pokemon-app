@@ -23,7 +23,7 @@
               </tr>
               <tr>
                 <td>Dégats</td>
-                <td>{{pokdemon.cp}}</td>
+                <td>{{pokemon.cp}}</td>
               </tr>
               <tr>
                 <td>Types</td>
@@ -31,8 +31,8 @@
                   <span
                     *ngFor="let type of pokemon.types"
                     class="{{ type | pokemonTypeColor}}"
-                  ></span
-                  >{{type}}
+                  >{{type}}</span
+                  >
                 </td>
               </tr>
               <tr>

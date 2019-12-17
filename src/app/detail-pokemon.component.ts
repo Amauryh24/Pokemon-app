@@ -6,7 +6,7 @@ import { Pokemon } from "./pokemon";
 
 @Component({
   selector: "detail-pokemon",
-  templateUrl: "./app/detail-pokemon.pokemon.html"
+  templateUrl: "./app/detail-pokemon.component.html"
 })
 export class DetailPokemonComponent implements OnInit {
   pokemons: Pokemon[] = null;
