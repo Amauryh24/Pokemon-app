@@ -1,0 +1,51 @@
+<div *ngIf="pokemon" class="row">
+  <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{pokemon.name}}</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img
+          [src]="pokemon.picture"
+          [alt]="pokemon.name"
+          [title]="pokemon.name"
+        />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table>
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td>{{pokemon.name}}</td>
+              </tr>
+              <tr>
+                <td>Point de vie</td>
+                <td>{{pokemon.hp}}</td>
+              </tr>
+              <tr>
+                <td>Dégats</td>
+                <td>{{pokdemon.cp}}</td>
+              </tr>
+              <tr>
+                <td>Types</td>
+                <td>
+                  <span
+                    *ngFor="let type of pokemon.types"
+                    class="{{ type | pokemonTypeColor}}"
+                  ></span
+                  >{{type}}
+                </td>
+              </tr>
+              <tr>
+                <td>Date de création</td>
+                <td>{{pokemon.created | date:"dd/MM/yyyy"}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a (click)="goBack()">Retour</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
