@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var _a;
 const core_1 = require("@angular/core");
 const mock_pokemons_1 = require("./mock-pokemons");
 const router_1 = require("@angular/router");
 let ListPokemonComponent = class ListPokemonComponent {
-    constructor(router) {
+    constructor(router, pokemonsService) {
         this.router = router;
+        this.pokemonsService = pokemonsService;
         this.pokemons = null;
     }
     ngOnInit() {
@@ -31,7 +33,7 @@ ListPokemonComponent = __decorate([
         selector: "list-pokemon",
         templateUrl: `./app/pokemons/list-pokemon.component.html`
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router, typeof (_a = typeof PokemonsService !== "undefined" && PokemonsService) === "function" ? _a : Object])
 ], ListPokemonComponent);
 exports.ListPokemonComponent = ListPokemonComponent;
 //# sourceMappingURL=list-pokemon.component.js.map
