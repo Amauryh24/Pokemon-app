@@ -4,7 +4,8 @@ import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "pokemon-form",
-  templateUrl: "pokemon-form.component.html"
+  templateUrl: "app/pokemon/pokemon-form.component.html",
+  styleUrls:["app/pokemon/pokemon-form.component.css"]
 })
 export class PokemonFormComponent implements OnInit {
   @Input() pokemon: Pokemon;
@@ -36,6 +37,13 @@ export class PokemonFormComponent implements OnInit {
       }
     }
   }
+
+isTypesValid(type:string) : boolean{
+  if(this.pokemon.types.length =>3 && !this.hasType(type)){
+    return false
+  }
+  return true
+}
 
   onSubmit(): void {
     console.log("submit form !");
