@@ -27,11 +27,20 @@ EditPokemonComponent = __decorate([
     core_1.Component({
         selector: "edit-pokemon",
         template: `
-    <h2 class="header center">Editer {{ pokemon?.name }}</h2>
+    <h2 *ngIf="pokemon" class="header center">Editer {{ pokemon?.name }}</h2>
     <p class="center">
       <img [src]="pokemon.picture" />
     </p>
     <pokemon-form [pokemon]="pokemon"> </pokemon-form>
+
+    <div *ngIf="!pokemon" class="center">
+      <h4>Aucun pokémon à modifier !</h4>
+      <div class="card-action">
+        <a class="waves-effect waves-light btn center" (click)="goBack()"
+          >Accueil</a
+        >
+      </div>
+    </div>
   `
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
