@@ -84,7 +84,7 @@
               id="{{ type }}"
               [value]="type"
               [checked]="hasType(type)"
-              [disable]="!isTypesValid(type)"
+              [disabled]="!isTypesValid(type)"
               (change)="selectType($event, type)"
             />
             <label [attr.for]="type">
@@ -98,7 +98,7 @@
           <button
             type="submit"
             class="waves-effect waves-light btn"
-            [disable]="!pokemonForm.form.valid"
+            [disabled]="!pokemonForm.form.valid"
           >
             Valider
           </button>

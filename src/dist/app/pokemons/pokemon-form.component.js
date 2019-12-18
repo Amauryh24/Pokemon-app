@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _a;
+const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const pokemons_service_1 = require("./pokemons.service");
-const core_1 = require("@angular/core");
+const pokemon_1 = require("./pokemon");
 let PokemonFormComponent = class PokemonFormComponent {
     constructor(pokemonsService, router) {
         this.pokemonsService = pokemonsService;
@@ -36,9 +36,15 @@ let PokemonFormComponent = class PokemonFormComponent {
         else {
             let index = this.pokemon.types.indexOf(type);
             if (~index) {
-                this.pokemons.types.splice(index, 1);
+                this.pokemon.types.splice(index, 1);
             }
         }
+    }
+    isTypesValid(type) {
+        if (this.pokemon.types.length >= 3 && !this.hasType(type)) {
+            return false;
+        }
+        return true;
     }
     onSubmit() {
         console.log("submit form !");
@@ -48,12 +54,13 @@ let PokemonFormComponent = class PokemonFormComponent {
 };
 __decorate([
     core_1.Input(),
-    __metadata("design:type", typeof (_a = typeof Pokemon !== "undefined" && Pokemon) === "function" ? _a : Object)
+    __metadata("design:type", pokemon_1.Pokemon)
 ], PokemonFormComponent.prototype, "pokemon", void 0);
 PokemonFormComponent = __decorate([
     core_1.Component({
         selector: "pokemon-form",
-        templateUrl: "pokemon-form.component.html"
+        templateUrl: "./app/pokemons/pokemon-form.component.html",
+        styleUrls: ["./app/pokemons/pokemon-form.component.css"]
     }),
     __metadata("design:paramtypes", [pokemons_service_1.PokemonsService,
         router_1.Router])

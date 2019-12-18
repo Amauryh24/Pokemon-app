@@ -9,9 +9,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router_1 = require("@angular/router");
 const core_1 = require("@angular/core");
 const list_pokemon_component_1 = require("./list-pokemon.component");
+const edit_pokemon_component_1 = require("./edit-pokemon.component");
 const detail_pokemon_component_1 = require("./detail-pokemon.component");
 const pokemonsRoutes = [
     { path: "pokemons", component: list_pokemon_component_1.ListPokemonComponent },
+    { path: "pokemon/edit/:id", component: edit_pokemon_component_1.EditPokemonComponent },
     { path: "pokemon/:id", component: detail_pokemon_component_1.DetailPokemonComponent }
 ];
 let PokemonRoutingModule = class PokemonRoutingModule {

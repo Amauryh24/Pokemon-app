@@ -1,11 +1,12 @@
+import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { PokemonsService } from "./pokemons.service";
-import { Component, OnInit, Input } from "@angular/core";
+import { Pokemon } from "./pokemon";
 
 @Component({
   selector: "pokemon-form",
-  templateUrl: "app/pokemon/pokemon-form.component.html",
-  styleUrls:["app/pokemon/pokemon-form.component.css"]
+  templateUrl: "./app/pokemons/pokemon-form.component.html",
+  styleUrls: ["./app/pokemons/pokemon-form.component.css"]
 })
 export class PokemonFormComponent implements OnInit {
   @Input() pokemon: Pokemon;
@@ -33,17 +34,17 @@ export class PokemonFormComponent implements OnInit {
     } else {
       let index = this.pokemon.types.indexOf(type);
       if (~index) {
-        this.pokemons.types.splice(index, 1);
+        this.pokemon.types.splice(index, 1);
       }
     }
   }
 
-isTypesValid(type:string) : boolean{
-  if(this.pokemon.types.length =>3 && !this.hasType(type)){
-    return false
+  isTypesValid(type: string): boolean {
+    if (this.pokemon.types.length >= 3 && !this.hasType(type)) {
+      return false;
+    }
+    return true;
   }
-  return true
-}
 
   onSubmit(): void {
     console.log("submit form !");

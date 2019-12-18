@@ -10,12 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
 const pokemons_service_1 = require("./pokemons.service");
-let DetailPokemonComponent = class DetailPokemonComponent {
-    constructor(route, router, pokemonsService) {
+const router_1 = require("@angular/router");
+let EditPokemonComponent = class EditPokemonComponent {
+    constructor(route, pokemonsService) {
         this.route = route;
-        this.router = router;
         this.pokemonsService = pokemonsService;
         this.pokemon = null;
     }
@@ -23,22 +22,20 @@ let DetailPokemonComponent = class DetailPokemonComponent {
         let id = +this.route.snapshot.params["id"];
         this.pokemon = this.pokemonsService.getPokemon(id);
     }
-    goBack() {
-        this.router.navigate(["/pokemons"]);
-    }
-    goEdit(pokemon) {
-        let link = ["/pokemon/edit", pokemon.id];
-        this.router.navigate(link);
-    }
 };
-DetailPokemonComponent = __decorate([
+EditPokemonComponent = __decorate([
     core_1.Component({
-        selector: "detail-pokemon",
-        templateUrl: "./app/pokemons/detail-pokemon.component.html"
+        selector: "edit-pokemon",
+        template: `
+    <h2 class="header center">Editer {{ pokemon?.name }}</h2>
+    <p class="center">
+      <img [src]="pokemon.picture" />
+    </p>
+    <pokemon-form [pokemon]="pokemon"> </pokemon-form>
+  `
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router,
         pokemons_service_1.PokemonsService])
-], DetailPokemonComponent);
-exports.DetailPokemonComponent = DetailPokemonComponent;
-//# sourceMappingURL=detail-pokemon.component.js.map
+], EditPokemonComponent);
+exports.EditPokemonComponent = EditPokemonComponent;
+//# sourceMappingURL=edit-pokemon.component.js.map
