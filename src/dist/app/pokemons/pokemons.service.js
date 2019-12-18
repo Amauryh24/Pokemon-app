@@ -8,23 +8,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const mock_pokemons_1 = require("./mock-pokemons");
-let pokemonsService = class pokemonsService {
+let PokemonsService = class PokemonsService {
     // return all pokemons
     getPokemons() {
         return mock_pokemons_1.POKEMONS;
     }
     // return the pokemon with id as parameters
-    getPokemons(id) {
+    getPokemon(id) {
         let pokemons = this.getPokemons();
         for (let i = 0; i < pokemons.length; i++) {
-            if (id === pokemon[i].id) {
-                return pokemon[i];
+            if (id === pokemons[i].id) {
+                return pokemons[i];
             }
         }
     }
+    getPokemonTypes() {
+        return [
+            "Plante",
+            "Feu",
+            "Eau",
+            "Insecte",
+            "Normal",
+            "Electrik",
+            "Poison",
+            "Fée",
+            "Vol"
+        ];
+    }
 };
-pokemonsService = __decorate([
+PokemonsService = __decorate([
     core_1.Injectable()
-], pokemonsService);
-exports.pokemonsService = pokemonsService;
+], PokemonsService);
+exports.PokemonsService = PokemonsService;
 //# sourceMappingURL=pokemons.service.js.map

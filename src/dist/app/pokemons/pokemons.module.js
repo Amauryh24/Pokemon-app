@@ -13,6 +13,7 @@ const detail_pokemon_component_1 = require("./detail-pokemon.component");
 const list_pokemon_component_1 = require("./list-pokemon.component");
 const core_1 = require("@angular/core");
 const common_1 = require("@angular/common");
+const pokemons_service_1 = require("./pokemons.service");
 let PokemonsModule = class PokemonsModule {
 };
 PokemonsModule = __decorate([
@@ -24,7 +25,7 @@ PokemonsModule = __decorate([
             border_card_directive_1.BorderCardDirective,
             pokemon_type_color_pipe_1.pokemonTypeColorPipe
         ],
-        providers: []
+        providers: [pokemons_service_1.PokemonsService]
     })
 ], PokemonsModule);
 exports.PokemonsModule = PokemonsModule;

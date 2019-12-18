@@ -1,11 +1,8 @@
-import { pokemonsService } from "./pokemons.service";
-import { Component } from "@angular/core";
-import { OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 import { Pokemon } from "./pokemon";
-import { POKEMONS } from "./mock-pokemons";
-
-import { Router } from "@angular/router";
+import { PokemonsService } from "./pokemons.service";
 
 @Component({
   selector: "list-pokemon",
@@ -20,7 +17,7 @@ export class ListPokemonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.pokemons = POKEMONS;
+    this.pokemons = this.pokemonsService.getPokemons();
   }
 
   selectPokemon(pokemon: Pokemon) {

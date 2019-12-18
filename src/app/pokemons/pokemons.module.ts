@@ -8,6 +8,8 @@ import { ListPokemonComponent } from "./list-pokemon.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
+import { PokemonsService } from "./pokemons.service";
+
 @NgModule({
   imports: [CommonModule, PokemonRoutingModule],
   declarations: [
@@ -16,6 +18,6 @@ import { CommonModule } from "@angular/common";
     BorderCardDirective,
     pokemonTypeColorPipe
   ],
-  providers: []
+  providers: [PokemonsService]
 })
 export class PokemonsModule {}
