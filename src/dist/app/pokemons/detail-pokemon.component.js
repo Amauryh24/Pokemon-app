@@ -21,7 +21,9 @@ let DetailPokemonComponent = class DetailPokemonComponent {
     }
     ngOnInit() {
         let id = +this.route.snapshot.params["id"];
-        this.pokemon = this.pokemonsService.getPokemon(id);
+        this.pokemonsService
+            .getPokemon(id)
+            .subscribe(pokemon => (this.pokemon = pokemon));
     }
     goBack() {
         this.router.navigate(["/pokemons"]);

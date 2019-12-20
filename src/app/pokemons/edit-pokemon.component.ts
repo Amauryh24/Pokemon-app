@@ -35,6 +35,6 @@ export class EditPokemonComponent implements OnInit {
     let id = +this.route.snapshot.params["id"];
     this.pokemonsService
       .getPokemon(id)
-      .subscribr(pokemon => (this.pokemon = pokemon));
+      .subscribe(pokemon => (this.pokemon = pokemon));
   }
 }

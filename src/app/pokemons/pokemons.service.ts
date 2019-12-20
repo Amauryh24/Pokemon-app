@@ -1,8 +1,7 @@
+import { Observable } from "rxjs/Observable";
 import { Injectable } from "@angular/core";
 
 import { Pokemon } from "./pokemon";
-import { POKEMONS } from "./mock-pokemons";
-
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Observable, of } from "rxjs";
@@ -14,7 +13,7 @@ export class PokemonsService {
   private pokemonsUrl = "api/pokemons";
 
   private log(log: string) {
-    console.ingo(log);
+    console.info(log);
   }
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
@@ -24,9 +23,19 @@ export class PokemonsService {
       return of(result as T);
     };
   }
+
+  updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    };
+    return this.http.put(this.pokemonsUrl, pokemon, httpOptions).pipe(
+      tap(_ => this.log(`update pokemon id=${pokemon.id}`)),
+      catchError(this.handleError<any>("updatePokemon"))
+    );
+  }
   // return all pokemons
   getPokemons(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this.pokemonUrl).pipe(
+    return this.http.get<Pokemon[]>(this.pokemonsUrl).pipe(
       tap(_ => this.log(`fetched pokemons`)),
       catchError(this.handleError(`getPokemon`, []))
     );
@@ -34,11 +43,11 @@ export class PokemonsService {
 
   // return the pokemon with id as parameters
   getPokemon(id: number): Observable<Pokemon> {
-    const url = `${this.pokemonUrl}/${id}`;
+    const url = `${this.pokemonsUrl}/${id}`;
 
-    return this.http.get<pokemon>(url).pipe(
+    return this.http.get<Pokemon>(url).pipe(
       tap(_ => this.log(`fetched pokemon id=${id}`)),
-      catchError(this.handleError(`get pokemon id=${id}`))
+      catchError(this.handleError<Pokemon>(`getPokemon id=${id}`))
     );
   }
 

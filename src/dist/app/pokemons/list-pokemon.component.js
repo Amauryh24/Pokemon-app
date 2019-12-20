@@ -19,7 +19,12 @@ let ListPokemonComponent = class ListPokemonComponent {
         this.pokemons = null;
     }
     ngOnInit() {
-        this.pokemons = this.pokemonsService.getPokemons();
+        this.getPokemons();
+    }
+    getPokemons() {
+        this.pokemonsService
+            .getPokemons()
+            .subscribe(pokemons => (this.pokemons = pokemons));
     }
     selectPokemon(pokemon) {
         // alert("vous avez cliqué sur " + pokemon.name);

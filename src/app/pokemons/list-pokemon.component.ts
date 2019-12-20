@@ -1,6 +1,6 @@
+import { POKEMONS } from "./mock-pokemons";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-
 import { Pokemon } from "./pokemon";
 import { PokemonsService } from "./pokemons.service";
 
@@ -17,10 +17,10 @@ export class ListPokemonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.pokemons = this.pokemonsService.getPokemons();
+    this.getPokemons();
   }
   getPokemons() {
-    this.pokemonService
+    this.pokemonsService
       .getPokemons()
       .subscribe(pokemons => (this.pokemons = pokemons));
   }
