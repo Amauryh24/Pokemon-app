@@ -1,4 +1,3 @@
-import { Observable } from "rxjs/Observable";
 import { Injectable } from "@angular/core";
 
 import { Pokemon } from "./pokemon";
@@ -24,6 +23,26 @@ export class PokemonsService {
     };
   }
 
+  searchPokemon(term: string): Observable<Pokemon[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Pokemon[]>(`${this.pokemonsUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found pokemon matching "${term}"`)),
+      catchError(this.handleError<Pokemon[]>(`searchPokemon`, []))
+    );
+  }
+
+  deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
+    const url = `${this.pokemonsUrl}/${pokemon.id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    };
+    return this.http.delete<Pokemon>(url, httpOptions).pipe(
+      tap(_ => this.log(`delete pokemon id=${pokemon.id}`)),
+      catchError(this.handleError<Pokemon>(`deletePokemon`))
+    );
+  }
   updatePokemon(pokemon: Pokemon): Observable<Pokemon> {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })

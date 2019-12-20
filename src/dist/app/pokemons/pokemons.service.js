@@ -28,6 +28,19 @@ let PokemonsService = class PokemonsService {
             return rxjs_1.of(result);
         };
     }
+    searchPokemon(term) {
+        if (!term.trim()) {
+            return rxjs_1.of([]);
+        }
+        return this.http.get(`${this.pokemonsUrl}/?name=${term}`).pipe(operators_1.tap(_ => this.log(`found pokemon matching "${term}"`)), operators_1.catchError(this.handleError(`searchPokemon`, [])));
+    }
+    deletePokemon(pokemon) {
+        const url = `${this.pokemonsUrl}/${pokemon.id}`;
+        const httpOptions = {
+            headers: new http_1.HttpHeaders({ "Content-Type": "application/json" })
+        };
+        return this.http.delete(url, httpOptions).pipe(operators_1.tap(_ => this.log(`delete pokemon id=${pokemon.id}`)), operators_1.catchError(this.handleError(`deletePokemon`)));
+    }
     updatePokemon(pokemon) {
         const httpOptions = {
             headers: new http_1.HttpHeaders({ "Content-Type": "application/json" })

@@ -48,6 +48,11 @@ let PokemonFormComponent = class PokemonFormComponent {
     }
     onSubmit() {
         console.log("submit form !");
+        this.pokemonsService
+            .updatePokemon(this.pokemon)
+            .subscribe(_ => this.goBack());
+    }
+    goBack() {
         let link = ["/pokemon", this.pokemon.id];
         this.router.navigate(link);
     }

@@ -25,6 +25,9 @@ let DetailPokemonComponent = class DetailPokemonComponent {
             .getPokemon(id)
             .subscribe(pokemon => (this.pokemon = pokemon));
     }
+    delete(pokemon) {
+        this.pokemonsService.deletePokemon(pokemon).subscribe(_ => this.goBack());
+    }
     goBack() {
         this.router.navigate(["/pokemons"]);
     }
