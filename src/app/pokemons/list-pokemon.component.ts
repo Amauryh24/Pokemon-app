@@ -19,7 +19,11 @@ export class ListPokemonComponent implements OnInit {
   ngOnInit() {
     this.pokemons = this.pokemonsService.getPokemons();
   }
-
+  getPokemons() {
+    this.pokemonService
+      .getPokemons()
+      .subscribe(pokemons => (this.pokemons = pokemons));
+  }
   selectPokemon(pokemon: Pokemon) {
     // alert("vous avez cliqué sur " + pokemon.name);
     let link = ["/pokemon", pokemon.id];
