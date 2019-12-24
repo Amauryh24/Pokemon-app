@@ -13,7 +13,7 @@
           <a
             class="collection-item"
             *ngFor="let pokemon of pokemons$ | async"
-            click="gotoDetail(pokemon)"
+            (click)="gotoDetail(pokemon)"
           >
             {{ pokemon.name }}</a
           >

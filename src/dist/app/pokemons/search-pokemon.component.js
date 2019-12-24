@@ -27,7 +27,7 @@ let PokemonSearchComponent = class PokemonSearchComponent {
         this.pokemons$ = this.searchTerms.pipe(operators_1.debounceTime(300), operators_1.distinctUntilChanged(), operators_1.switchMap((term) => this.pokemonsService.searchPokemons(term)));
     }
     gotoDetail(pokemon) {
-        let link = ["/pokmon", pokemon.id];
+        let link = ["/pokemon", pokemon.id];
         this.router.navigate(link);
     }
 };
