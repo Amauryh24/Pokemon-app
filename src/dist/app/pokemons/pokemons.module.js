@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const auth_guard_service_1 = require("./../auth-guard.service");
+const loader_component_1 = require("./../loader.component");
 const core_1 = require("@angular/core");
 const common_1 = require("@angular/common");
 const pokemons_routing_module_1 = require("./pokemons-routing.module");
@@ -29,10 +31,11 @@ PokemonsModule = __decorate([
             edit_pokemon_component_1.EditPokemonComponent,
             pokemon_form_component_1.PokemonFormComponent,
             search_pokemon_component_1.PokemonSearchComponent,
+            loader_component_1.LoaderComponent,
             border_card_directive_1.BorderCardDirective,
             pokemon_type_color_pipe_1.pokemonTypeColorPipe
         ],
-        providers: [pokemons_service_1.PokemonsService]
+        providers: [pokemons_service_1.PokemonsService, auth_guard_service_1.AuthGuard]
     })
 ], PokemonsModule);
 exports.PokemonsModule = PokemonsModule;

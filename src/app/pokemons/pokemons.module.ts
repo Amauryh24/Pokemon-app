@@ -1,3 +1,5 @@
+import { AuthGuard } from "./../auth-guard.service";
+import { LoaderComponent } from "./../loader.component";
 import { NgModule } from "@angular/core";
 
 import { CommonModule } from "@angular/common";
@@ -22,9 +24,10 @@ import { PokemonsService } from "./pokemons.service";
     EditPokemonComponent,
     PokemonFormComponent,
     PokemonSearchComponent,
+    LoaderComponent,
     BorderCardDirective,
     pokemonTypeColorPipe
   ],
-  providers: [PokemonsService]
+  providers: [PokemonsService, AuthGuard]
 })
 export class PokemonsModule {}

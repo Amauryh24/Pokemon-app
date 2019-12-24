@@ -7,20 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
-const page_not_found_component_1 = require("./page-not-found.component");
-// routes
-const appRoutes = [
-    { path: "", redirectTo: "pokemon/all", pathMatch: "full" },
-    { path: "**", component: page_not_found_component_1.PageNotFoundComponent }
-];
-let AppRoutingModule = class AppRoutingModule {
+let LoaderComponent = class LoaderComponent {
 };
-AppRoutingModule = __decorate([
-    core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(appRoutes)],
-        exports: [router_1.RouterModule]
+LoaderComponent = __decorate([
+    core_1.Component({
+        selector: "pokemon-loader",
+        template: `
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  `
     })
-], AppRoutingModule);
-exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=app-routing.module.js.map
+], LoaderComponent);
+exports.LoaderComponent = LoaderComponent;
+//# sourceMappingURL=loader.component.js.map

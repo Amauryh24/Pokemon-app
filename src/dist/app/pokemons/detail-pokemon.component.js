@@ -29,7 +29,7 @@ let DetailPokemonComponent = class DetailPokemonComponent {
         this.pokemonsService.deletePokemon(pokemon).subscribe(_ => this.goBack());
     }
     goBack() {
-        this.router.navigate(["/pokemons"]);
+        this.router.navigate(["/pokemon/all"]);
     }
     goEdit(pokemon) {
         let link = ["/pokemon/edit", pokemon.id];
