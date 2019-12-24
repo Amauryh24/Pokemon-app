@@ -23,7 +23,7 @@ export class PokemonsService {
     };
   }
 
-  searchPokemon(term: string): Observable<Pokemon[]> {
+  searchPokemons(term: string): Observable<Pokemon[]> {
     if (!term.trim()) {
       return of([]);
     }
