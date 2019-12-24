@@ -28,7 +28,7 @@ let PokemonsService = class PokemonsService {
             return rxjs_1.of(result);
         };
     }
-    searchPokemon(term) {
+    searchPokemons(term) {
         if (!term.trim()) {
             return rxjs_1.of([]);
         }
