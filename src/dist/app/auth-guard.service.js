@@ -9,17 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const auth_service_1 = require("./auth.service");
 const core_1 = require("@angular/core");
+const router_1 = require("@angular/router");
 let AuthGuard = class AuthGuard {
-    constructor() { }
-    canActivate() {
-        console.info("le guard à bien été appelé");
-        return true;
+    constructor(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    canActivate(route, state) {
+        let url = state.url;
+        return this.checkLogin(url);
+    }
+    checkLogin(url) {
+        if (this.authService.isLoggedIn) {
+            return true;
+        }
+        this.authService.redirectUrl = url;
+        this.router.navigate(["/login"]);
+        return false;
     }
 };
 AuthGuard = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
 ], AuthGuard);
 exports.AuthGuard = AuthGuard;
 //# sourceMappingURL=auth-guard.service.js.map

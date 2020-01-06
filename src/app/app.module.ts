@@ -1,3 +1,6 @@
+import { LoginRoutingModule } from "./login-routing.module";
+import { LoginComponent } from "./login.component";
+import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 
 import { BrowserModule } from "@angular/platform-browser";
@@ -14,13 +17,16 @@ import { PageNotFoundComponent } from "./page-not-found.component";
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false
     }),
     PokemonsModule,
+    LoginRoutingModule,
+
     AppRoutingModule
   ],
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
